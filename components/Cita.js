@@ -2,9 +2,11 @@ import { View, Text, StyleSheet, Button, TouchableHighlight} from 'react-native'
 import React from 'react'
 
 export default function Cita(props) {
-    const eliminarCita = () => {
-        console.log('Eliminando cita....');
+    
+    const procesoEliminar = (id) => {
+        props.eliminarCitas(id);
     }
+
     return (
     <View style={styles.cita}>
         <View>
@@ -20,7 +22,7 @@ export default function Cita(props) {
             <Text style={styles.texto}>{props.item.sintomas}</Text>
         </View>
         <View>
-            <TouchableHighlight onPress={()=> eliminarCita()} style={styles.btnEliminar}>
+            <TouchableHighlight onPress={()=> procesoEliminar(props.item.id)} style={styles.btnEliminar}>
                 <Text style={styles.textoEliminar}>Eliminar</Text>
             </TouchableHighlight>
         </View>
